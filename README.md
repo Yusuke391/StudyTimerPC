@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -90,3 +91,7 @@ font-family: system-ui, Arial, Helvetica, "Segoe UI", Roboto, sans-serif;
 このように複数指定しておくことで、どの環境でも「それなりに見やすい」フォントが使われます。
 
 ---
+=======
+# StudyTimerPC
+made by electron, react, typescript, yarn
+>>>>>>> 6559910e55c61c3021fb3ede4ac5c96ba8daf67a
