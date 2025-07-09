@@ -1,0 +1,275 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #5CDEFF;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 5em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #5CDEFF;
+}
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+.timer-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-end; /* 下揃えに変更 */
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 円形タイマー用スタイル */
+.circular-timer-container {
+  position: relative;
+  width: 280px; 
+  height: 280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-timer-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 280px;
+  height: 280px;
+  pointer-events: none;
+  transform: rotate(-90deg);
+}
+
+.circular-timer-inner {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.circular-timer-bg {
+  stroke: #505664;
+  stroke-width: 2;
+}
+
+.circular-timer-bar {
+  stroke: #7F91BC;
+  stroke-width: 2;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+.circular-timer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  font-weight: 400;
+  color: #90BFF8;
+  user-select: none;
+  pointer-events: none;
+  z-index: 3;
+  text-align: center;
+  width: auto;
+  height: auto;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.time-setting-btn{
+  background: transparent !important;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  border: none !important;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  z-index: 10;
+}
+
+.time-setting-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: auto;
+}
+
+.time-setting-panel {
+  width: 271px;
+  height: 300px;
+  background: linear-gradient(to bottom, #1e2e48, #2c3e5f);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.description {
+  font-size: large;
+  font-weight: 300;
+  text-align: left;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+}
+
+.time-inputs {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  align-items: end;
+  gap: 5px;
+  margin-bottom: 10px;
+  padding: 2px;
+}
+
+.input-box {
+  width: 40px;
+  height: 60px;
+  border: 1px dashed #ffffffaa;
+  background: transparent;
+  color: white;
+  font-size: 40px;
+  text-align: center;   
+  box-sizing: border-box;
+
+  /* 入力要素専用 */
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+}
+
+
+.label {
+  font-size: 18px;
+}
+
+.click-note {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.input-box::-webkit-inner-spin-button,
+.input-box::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quote-box {
+   background-image: linear-gradient(
+        to top right,
+        #0B2442 12%,
+        #113A6A 58%,
+        #1B5DA8 89% /* この行を追加または修正 */
+    ); /* 最後にセミコロンを忘れずに */
+    /* 必要に応じて他のプロパティも追加 */
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px; /* 例として追加 */
+    padding: 20px; /* 例として追加 */
+    color: white; /* テキストが見えるように */    
+}
+
+.quote-box p {
+    white-space: pre-wrap; /* ここを追加 */
+    margin: 0; /* デフォルトのマージンをリセット */
+    line-height: 1.5; /* 行の高さを調整 */
+    text-align: left;
+    transform: skewX(-18deg); /* 負の値を指定すると、右上がりに傾く */
+}
+
+.menu-button {
+  position: fixed;         /* スクロールしても固定 */
+  top:10px;
+  left:10px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  z-index: 100;            /* 他の要素の上に表示 */
+  cursor: pointer;
+}
+
+.menu-button img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: auto;
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.vite/tsconfig.node.tsbuildinfo",
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "isolatedModules": true,
+    "types": ["node"], // ElectronのNode.js環境向け
+  },
+  "include": ["main.ts", "preload.js", "electron"], // main.tsとpreload.jsを含める
+  "exclude": ["src"] // srcディレクトリは除外
+}

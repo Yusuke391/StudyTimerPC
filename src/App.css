@@ -1,0 +1,78 @@
+/* src/App.css (または src/index.css) */
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #282828;
+  color: white;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App {
+  font-family: Arial, sans-serif;
+  background-color: #282828;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.timer-display {
+  font-size: 4em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.controls button {
+  border: none;
+  padding: 50px 100px;
+  margin: 0 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.controls button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.controls button:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.start-btn {
+  background-color: #D8E1EB;
+  color: #2E637E;
+}
+
+.stop-btn {
+  background-color: #162434;
+  color: #57AED9;
+}
+
+.reset-btn {
+  background-color: #162434;
+  color: #5BB5E2;
+}
+
