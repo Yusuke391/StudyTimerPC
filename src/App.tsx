@@ -10,8 +10,20 @@ import { TimeSettingModal } from './components/TimerSettingModal';
 
 function App() {
   const DEFAULT_INITIAL_TIME = 300; // デフォルトの初期時間（秒単位、例: 5分）
-  const size = 400; // タイマーの直径(px)をここで一元管理
-  const stroke = 24;
+  
+  // 画面サイズに応じてタイマーサイズを調整
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // レスポンシブなサイズ計算（画面高さも考慮）
+  const windowHeight = window.innerHeight;
+  const size = Math.min(windowHeight * 0.6);
+  const stroke = Math.max(windowWidth * 0.02, 16);
   const quote =
     '"成功があがりでもなければ、失敗が終わりでもない。\n肝心なのは、続ける勇気である。"';
   const person = 'ウィンストン・チャーチル';

@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
 a {
   font-weight: 500;
   color: #5CDEFF;
@@ -27,7 +32,8 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 h1 {
@@ -39,7 +45,7 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 5em;
+  font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -53,24 +59,27 @@ button:focus,
 button:focus-visible {
   outline: none;
 }
+
 .timer-container {
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: flex-end; /* 下揃えに変更 */
   justify-content: center;
-  gap: 40px;
+  gap: clamp(2rem, 5vw, 8rem);
   width: 100%;
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 4rem);
 }
+
+
 
 /* 円形タイマー用スタイル */
 .circular-timer-container {
   position: relative;
-  width: 280px; 
-  height: 280px;
+  width: clamp(200px, min(35vw, 50vh), 500px); 
+  height: clamp(200px, min(35vw, 50vh), 500px);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -82,18 +91,18 @@ button:focus-visible {
   top: 0;
   left: 0;
   z-index: 2;
-  width: 280px;
-  height: 280px;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   transform: rotate(-90deg);
 }
 
 .circular-timer-inner {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 256px;
-  height: 256px;
+  top: 4.3%;
+  left: 4.3%;
+  width: 91.4%;
+  height: 91.4%;
   border-radius: 50%;
   object-fit: cover;
   z-index: 1;
@@ -116,7 +125,7 @@ button:focus-visible {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3em;
+  font-size: clamp(2rem, 6vw, 5rem);
   font-weight: 400;
   color: #90BFF8;
   user-select: none;
@@ -146,11 +155,11 @@ button:focus-visible {
 
 .time-setting-btn{
   background: transparent !important;
-  width: 70px;
-  height: 70px;
+  width: clamp(50px, 5vw, 70px);
+  height: clamp(50px, 5vw, 70px);
   position: absolute;
-  bottom: 30px;
-  left: 30px;
+  bottom: clamp(20px, 3vw, 30px);
+  left: clamp(20px, 3vw, 30px);
   border: none !important;
   padding: 0;
   margin: 0;
@@ -170,14 +179,15 @@ button:focus-visible {
 }
 
 .time-setting-panel {
-  width: 271px;
-  height: 300px;
+  width: clamp(250px, 20vw, 271px);
+  height: auto;
+  min-height: 280px;
   background: linear-gradient(to bottom, #1e2e48, #2c3e5f);
   color: white;
-  padding: 10px;
+  padding: clamp(0.75rem, 1vw, 1rem);
   border-radius: 8px;
   font-family: 'Arial', sans-serif;
-  font-size: 12px;
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
@@ -201,12 +211,12 @@ button:focus-visible {
 }
 
 .input-box {
-  width: 40px;
-  height: 60px;
+  width: clamp(35px, 3vw, 40px);
+  height: clamp(50px, 5vw, 60px);
   border: 1px dashed #ffffffaa;
   background: transparent;
   color: white;
-  font-size: 40px;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   text-align: center;   
   box-sizing: border-box;
 
@@ -239,20 +249,34 @@ button:focus-visible {
         #113A6A 58%,
         #1B5DA8 89% /* この行を追加または修正 */
     ); /* 最後にセミコロンを忘れずに */
-    /* 必要に応じて他のプロパティも追加 */
+    /* 必要に忌じて他のプロパティも追加 */
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 8px; /* 例として追加 */
-    padding: 20px; /* 例として追加 */
-    color: white; /* テキストが見えるように */    
+    border-radius: clamp(0.5rem, 1vw, 1rem); /* 例として追加 */
+    padding: clamp(1rem, 2vw, 2rem); /* 例として追加 */
+    color: white; /* テキストが見えるように */
+    width: clamp(300px, min(70vw, 90vh), 900px);
+    max-height: 25vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.quote-content {
+    width: 100%;
+    max-width: 100%;
 }
 
 .quote-box p {
     white-space: pre-wrap; /* ここを追加 */
     margin: 0; /* デフォルトのマージンをリセット */
-    line-height: 1.5; /* 行の高さを調整 */
+    line-height: 1.6; /* 行の高さを調整 */
     text-align: left;
     transform: skewX(-18deg); /* 負の値を指定すると、右上がりに傾く */
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 .menu-button {

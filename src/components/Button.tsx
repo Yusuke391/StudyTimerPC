@@ -16,7 +16,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`button ${className}`}
+      className={className}
     >
       {children}
     </button>

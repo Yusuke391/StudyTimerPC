@@ -5,19 +5,8 @@ interface QuoteBoxProps {
 
 export function QuoteBox({ quote, person }: QuoteBoxProps) {
   return (
-    <div
-      className="quote-box"
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        style={{
-          width: 600,
-        }}
-      >
+    <div className="quote-box">
+      <div className="quote-content">
         <p>{quote}</p>
         <p>({person})</p>
       </div>
